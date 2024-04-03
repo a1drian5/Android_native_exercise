@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.anushka.tmdbclient.R
 import com.anushka.tmdbclient.databinding.ActivityMovieBinding
@@ -38,7 +39,7 @@ class MovieActivity : AppCompatActivity() {
     }
 
     private fun initRecyclerView() {
-        binding.movieRecyclerView.layoutManager = LinearLayoutManager(this)
+        binding.movieRecyclerView.layoutManager = GridLayoutManager(this,2)
         adapter = MovieAdapter()
         binding.movieRecyclerView.adapter = adapter
         displayPopularMovies()

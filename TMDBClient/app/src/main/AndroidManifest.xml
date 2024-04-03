@@ -15,17 +15,8 @@
         android:theme="@style/Theme.TMDBClient"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.tv.TvShowActivity"
-            android:exported="false" />
-        <activity
             android:name=".presentation.movie.MovieActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.artist.ArtistActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.anushka.tmdbclient.presentation.HomeActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,5 +24,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
