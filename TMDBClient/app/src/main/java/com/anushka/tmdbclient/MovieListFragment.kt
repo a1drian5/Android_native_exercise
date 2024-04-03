@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.anushka.tmdbclient.databinding.FragmentMovieListBinding
 import com.anushka.tmdbclient.presentation.movie.MovieAdapter
@@ -46,11 +47,14 @@ class MovieListFragment : Fragment() {
             Log.i("MYTAG", it.toString())
         })
         initRecyclerView()
+        displayPopularMovies()
     }
 
     private fun initRecyclerView() {
         binding.movieRecyclerView.layoutManager = GridLayoutManager(context,2)
-        adapter = MovieAdapter()
+        // Obtener NavController
+        val navController = findNavController()
+        adapter = MovieAdapter(navController)
         binding.movieRecyclerView.adapter = adapter
         displayPopularMovies()
     }

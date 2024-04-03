@@ -1,21 +1,25 @@
 package com.anushka.tmdbclient.presentation.movie
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
+import com.anushka.tmdbclient.MovieListFragmentDirections
 import com.anushka.tmdbclient.R
 import com.anushka.tmdbclient.data.model.movie.Movie
 import com.anushka.tmdbclient.databinding.ListItemBinding
 import com.bumptech.glide.Glide
 
 
-class MovieAdapter():RecyclerView.Adapter<MyViewHolder>() {
+class MovieAdapter(private val navController: NavController):RecyclerView.Adapter<MyViewHolder>() {
     private val movieList = ArrayList<Movie>()
 
     fun setList(movies:List<Movie>){
          movieList.clear()
          movieList.addAll(movies)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -34,7 +38,19 @@ class MovieAdapter():RecyclerView.Adapter<MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-       holder.bind(movieList[position])
+        val movie = movieList[position]
+        holder.bind(movie)
+//        holder.itemView.setOnClickListener {
+//            val action = MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(movieId = movie.id)
+//            navController.navigate(action)
+//            Log.i("CLIC","SI SE HIZO CLIC")
+//        }
+        holder.binding.imageView.setOnClickListener {
+            val action = MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(movieId = movie.id)
+            navController.navigate(action)
+            Log.i("CLIC","SI SE HIZO CLIC")
+        }
+
     }
 }
 
