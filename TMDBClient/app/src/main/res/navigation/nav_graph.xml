@@ -28,6 +28,9 @@
             <argument
                 android:name="movieVoteAverage"
                 app:argType="string" />
+            <argument
+                android:name="moviePosterPath"
+                app:argType="string" />
         </action>
     </fragment>
     <fragment
@@ -49,6 +52,9 @@
             app:argType="string" />
         <argument
             android:name="movieVoteAverage"
+            app:argType="string" />
+        <argument
+            android:name="moviePosterPath"
             app:argType="string" />
     </fragment>
 </navigation>

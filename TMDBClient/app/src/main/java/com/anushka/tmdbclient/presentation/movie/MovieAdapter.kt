@@ -51,7 +51,8 @@ class MovieAdapter(private val navController: NavController):RecyclerView.Adapte
                 movieOverview = movie.overview,
                 movieTitle = movie.title,
                 movieReleaseDate = movie.releaseDate,
-                movieVoteAverage = movie.voteAverage
+                movieVoteAverage = movie.voteAverage,
+                moviePosterPath = movie.posterPath
             )
             navController.navigate(action)
             Log.i("CLIC","SI SE HIZO CLIC")

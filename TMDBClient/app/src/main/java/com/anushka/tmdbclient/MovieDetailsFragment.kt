@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.anushka.tmdbclient.databinding.FragmentMovieDetailsBinding
 import com.anushka.tmdbclient.databinding.FragmentMovieListBinding
+import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -18,6 +19,7 @@ class MovieDetailsFragment : Fragment() {
     private var movieOverview: String? = "N/A"
     private var movieReleaseDate: String? = "N/A"
     private var movieVoteAverage: String? = "N/A"
+    private var moviePosterPath: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,6 +41,7 @@ class MovieDetailsFragment : Fragment() {
             movieTitle = it.getString("movieTitle")
             movieReleaseDate = it.getString("movieReleaseDate")
             movieVoteAverage = it.getString("movieVoteAverage")
+            moviePosterPath = it.getString("moviePosterPath")
         }
 
         // Ahora puedes usar los argumentos en tu lógica de fragmento
@@ -46,7 +49,11 @@ class MovieDetailsFragment : Fragment() {
         binding.textViewRating.text = movieVoteAverage
         binding.textViewSynopsis.text = movieOverview
         binding.textViewReleaseDate.text = movieReleaseDate
-
+        // La imagen se carga diferente a los otros parametros
+        val posterURL = "https://image.tmdb.org/t/p/w185$moviePosterPath"
+        Glide.with(binding.imageViewPoster.context)
+            .load(posterURL)
+            .into(binding.imageViewPoster)
     }
 
 }
