@@ -46,7 +46,13 @@ class MovieAdapter(private val navController: NavController):RecyclerView.Adapte
 //            Log.i("CLIC","SI SE HIZO CLIC")
 //        }
         holder.binding.imageView.setOnClickListener {
-            val action = MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(movieId = movie.id)
+            val action = MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(
+                movieId = movie.id,
+                movieOverview = movie.overview,
+                movieTitle = movie.title,
+                movieReleaseDate = movie.releaseDate,
+                movieVoteAverage = movie.voteAverage
+            )
             navController.navigate(action)
             Log.i("CLIC","SI SE HIZO CLIC")
         }

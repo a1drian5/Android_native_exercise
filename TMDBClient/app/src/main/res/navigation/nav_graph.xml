@@ -16,6 +16,18 @@
             <argument
                 android:name="movieId"
                 app:argType="integer" />
+            <argument
+                android:name="movieTitle"
+                app:argType="string" />
+            <argument
+                android:name="movieOverview"
+                app:argType="string" />
+            <argument
+                android:name="movieReleaseDate"
+                app:argType="string" />
+            <argument
+                android:name="movieVoteAverage"
+                app:argType="string" />
         </action>
     </fragment>
     <fragment
@@ -26,5 +38,17 @@
         <argument
             android:name="movieId"
             app:argType="integer" />
+        <argument
+            android:name="movieTitle"
+            app:argType="string" />
+        <argument
+            android:name="movieOverview"
+            app:argType="string" />
+        <argument
+            android:name="movieReleaseDate"
+            app:argType="string" />
+        <argument
+            android:name="movieVoteAverage"
+            app:argType="string" />
     </fragment>
 </navigation>
