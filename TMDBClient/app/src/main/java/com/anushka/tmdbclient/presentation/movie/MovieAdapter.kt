@@ -1,6 +1,5 @@
 package com.anushka.tmdbclient.presentation.movie
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -40,11 +39,6 @@ class MovieAdapter(private val navController: NavController):RecyclerView.Adapte
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val movie = movieList[position]
         holder.bind(movie)
-//        holder.itemView.setOnClickListener {
-//            val action = MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(movieId = movie.id)
-//            navController.navigate(action)
-//            Log.i("CLIC","SI SE HIZO CLIC")
-//        }
         holder.binding.imageView.setOnClickListener {
             val action = MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(
                 movieId = movie.id,
@@ -55,7 +49,6 @@ class MovieAdapter(private val navController: NavController):RecyclerView.Adapte
                 moviePosterPath = movie.posterPath
             )
             navController.navigate(action)
-            Log.i("CLIC","SI SE HIZO CLIC")
         }
 
     }
@@ -67,8 +60,6 @@ class MyViewHolder(val binding: ListItemBinding):
 RecyclerView.ViewHolder(binding.root){
 
    fun bind(movie:Movie){
-//        binding.titleTextView.text = movie.title
-//        binding.descriptionTextView.text = movie.overview
         val posterURL = "https://image.tmdb.org/t/p/w185"+movie.posterPath
         Glide.with(binding.imageView.context)
             .load(posterURL)

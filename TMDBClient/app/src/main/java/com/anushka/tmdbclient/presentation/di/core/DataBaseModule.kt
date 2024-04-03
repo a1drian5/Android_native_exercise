@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.room.Room
 import com.anushka.tmdbclient.data.db.MovieDao
 import com.anushka.tmdbclient.data.db.TMDBDatabase
+import com.anushka.tmdbclient.data.db.TopRateMovieDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,5 +24,11 @@ class DataBaseModule {
     @Provides
     fun provideMovieDao(tmdbDatabase: TMDBDatabase):MovieDao{
         return tmdbDatabase.movieDao()
+    }
+
+    @Singleton
+    @Provides
+    fun provideTopRateMovieDao(tmdbDatabase: TMDBDatabase):TopRateMovieDao{
+        return tmdbDatabase.topRateMovieDao()
     }
 }

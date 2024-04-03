@@ -1,6 +1,7 @@
 package com.anushka.tmdbclient.data.api
 
 import com.anushka.tmdbclient.data.model.movie.MovieList
+import com.anushka.tmdbclient.data.model.movie.TopRateMoviesList
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -13,4 +14,11 @@ interface TMDBService {
             "api_key"
         ) apiKey: String
     ): Response<MovieList>
+
+    @GET("movie/top_rated")
+    suspend fun getTopRatedMovies(
+        @Query(
+            "api_key"
+        ) apiKey: String
+    ): Response<TopRateMoviesList>
 }
