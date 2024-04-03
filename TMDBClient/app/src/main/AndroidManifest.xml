@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.anushka.tmdbclient">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".presentation.App"
         android:allowBackup="true"
@@ -15,8 +17,11 @@
         android:theme="@style/Theme.TMDBClient"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.topRateMovie.TopRateMovieActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.movie.MovieActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,4 +29,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
