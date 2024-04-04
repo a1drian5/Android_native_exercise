@@ -5,55 +5,52 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.anushka.tmdbclient.databinding.FragmentTopRateMovieDetailsBinding
+import com.bumptech.glide.Glide
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [TopRateMovieDetailsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class TopRateMovieDetailsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding: FragmentTopRateMovieDetailsBinding
+    private var movieId: Int = 0
+    private var movieTitle: String? = "N/A"
+    private var movieOverview: String? = "N/A"
+    private var movieReleaseDate: String? = "N/A"
+    private var movieVoteAverage: String? = "N/A"
+    private var moviePosterPath: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_top_rate_movie_details, container, false)
+        binding = FragmentTopRateMovieDetailsBinding.inflate(inflater, container, false)
+        return binding.root
+
+
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TopRateMovieDetailsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TopRateMovieDetailsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        arguments?.let {
+            movieId = it.getInt("movieId")
+            movieOverview = it.getString("movieOverview")
+            movieTitle = it.getString("movieTitle")
+            movieReleaseDate = it.getString("movieReleaseDate")
+            movieVoteAverage = it.getString("movieVoteAverage")
+            moviePosterPath = it.getString("moviePosterPath")
+        }
+
+        // Ahora puedes usar los argumentos en tu lógica de fragmento
+        binding.textViewTitle.text = movieTitle
+        binding.textViewRating.text = movieVoteAverage
+        binding.textViewSynopsis.text = movieOverview
+        binding.textViewReleaseDate.text = movieReleaseDate
+        // La imagen se carga diferente a los otros parametros
+        val posterURL = "https://image.tmdb.org/t/p/w185$moviePosterPath"
+        Glide.with(binding.imageViewPoster.context)
+            .load(posterURL)
+            .into(binding.imageViewPoster)
     }
 }

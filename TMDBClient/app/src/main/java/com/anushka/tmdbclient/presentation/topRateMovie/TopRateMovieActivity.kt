@@ -6,7 +6,9 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.anushka.tmdbclient.R
 import com.anushka.tmdbclient.databinding.ActivityTopRateMovieBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TopRateMovieActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     private lateinit var binding: ActivityTopRateMovieBinding

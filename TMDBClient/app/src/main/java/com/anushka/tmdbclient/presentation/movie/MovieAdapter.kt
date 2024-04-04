@@ -11,7 +11,6 @@ import com.anushka.tmdbclient.data.model.movie.Movie
 import com.anushka.tmdbclient.databinding.ListItemBinding
 import com.bumptech.glide.Glide
 
-
 class MovieAdapter(private val navController: NavController):RecyclerView.Adapter<MyViewHolder>() {
     private val movieList = ArrayList<Movie>()
 

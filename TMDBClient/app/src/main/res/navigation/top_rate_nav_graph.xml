@@ -12,11 +12,49 @@
         tools:layout="@layout/fragment_top_rate_movie_list" >
         <action
             android:id="@+id/action_topRateMovieListFragment_to_topRateMovieDetailsFragment"
-            app:destination="@id/topRateMovieDetailsFragment" />
+            app:destination="@id/topRateMovieDetailsFragment" >
+            <argument
+                android:name="movieId"
+                app:argType="integer" />
+            <argument
+                android:name="movieTitle"
+                app:argType="string" />
+            <argument
+                android:name="movieOverview"
+                app:argType="string" />
+            <argument
+                android:name="movieReleaseDate"
+                app:argType="string" />
+            <argument
+                android:name="movieVoteAverage"
+                app:argType="string" />
+            <argument
+                android:name="moviePosterPath"
+                app:argType="string" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/topRateMovieDetailsFragment"
         android:name="com.anushka.tmdbclient.TopRateMovieDetailsFragment"
         android:label="fragment_top_rate_movie_details"
-        tools:layout="@layout/fragment_top_rate_movie_details" />
+        tools:layout="@layout/fragment_top_rate_movie_details" >
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+        <argument
+            android:name="movieTitle"
+            app:argType="string" />
+        <argument
+            android:name="movieOverview"
+            app:argType="string" />
+        <argument
+            android:name="movieReleaseDate"
+            app:argType="string" />
+        <argument
+            android:name="movieVoteAverage"
+            app:argType="string" />
+        <argument
+            android:name="moviePosterPath"
+            app:argType="string" />
+    </fragment>
 </navigation>

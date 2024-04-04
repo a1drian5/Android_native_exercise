@@ -6,10 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.anushka.tmdbclient.databinding.FragmentMovieDetailsBinding
-import com.anushka.tmdbclient.databinding.FragmentMovieListBinding
 import com.bumptech.glide.Glide
-import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 class MovieDetailsFragment : Fragment() {
 
