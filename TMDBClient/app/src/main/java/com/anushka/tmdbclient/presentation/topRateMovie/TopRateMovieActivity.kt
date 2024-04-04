@@ -18,6 +18,10 @@ class TopRateMovieActivity : AppCompatActivity() {
         binding = ActivityTopRateMovieBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.hide() // Oculta la ActionBar proporcionada por AppCompat
+        setSupportActionBar(binding.toolbar) // Configura la Toolbar como ActionBar
+        supportActionBar?.setDisplayHomeAsUpEnabled(true) // Muestra el botón de retroceso
+
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.topRateNavHostFragment) as NavHostFragment
         navController = navHostFragment.navController
     }
