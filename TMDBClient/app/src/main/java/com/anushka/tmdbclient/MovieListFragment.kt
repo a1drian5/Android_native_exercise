@@ -7,10 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.anushka.tmdbclient.databinding.ActivityMovieBinding
 import com.anushka.tmdbclient.databinding.FragmentMovieListBinding
 import com.anushka.tmdbclient.presentation.movie.MovieAdapter
 import com.anushka.tmdbclient.presentation.movie.MovieViewModel
@@ -47,7 +49,6 @@ class MovieListFragment : Fragment() {
             Log.i("MYTAG", it.toString())
         })
         initRecyclerView()
-        displayPopularMovies()
     }
 
     private fun initRecyclerView() {
