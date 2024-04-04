@@ -10,15 +10,13 @@ interface TMDBService {
 
     @GET("movie/popular")
     suspend fun getPopularMovies(
-        @Query(
-            "api_key"
-        ) apiKey: String
+        @Query("api_key") apiKey: String,
+        @Query("language") language: String // Parámetro para el idioma
     ): Response<MovieList>
 
     @GET("movie/top_rated")
     suspend fun getTopRatedMovies(
-        @Query(
-            "api_key"
-        ) apiKey: String
+        @Query("api_key") apiKey: String,
+        @Query("language") language: String // Parámetro para el idioma
     ): Response<TopRateMoviesList>
 }

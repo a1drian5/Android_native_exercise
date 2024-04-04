@@ -7,8 +7,9 @@ import retrofit2.Response
 
 class TopRateMovieRemoteDataSourceImpl(
     private val tmdbService: TMDBService,
-    private val apiKey:String
+    private val apiKey:String,
+    private var language: String
 ) : TopRateMovieRemoteDatasource {
-    override suspend fun getTopRateMovies(): Response<TopRateMoviesList> = tmdbService.getTopRatedMovies(apiKey)
+    override suspend fun getTopRateMovies(): Response<TopRateMoviesList> = tmdbService.getTopRatedMovies(apiKey, language)
 
 }
