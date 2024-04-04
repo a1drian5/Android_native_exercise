@@ -35,6 +35,7 @@ class MovieAdapter(private val navController: NavController):RecyclerView.Adapte
         return movieList.size
     }
 
+    // Por medio del adapter se pasaban los datos al siguiente fragmento al dar clic en alguna pelicula
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val movie = movieList[position]
         holder.bind(movie)
@@ -58,6 +59,7 @@ class MovieAdapter(private val navController: NavController):RecyclerView.Adapte
 class MyViewHolder(val binding: ListItemBinding):
 RecyclerView.ViewHolder(binding.root){
 
+    // Se utilizo glide para mostrar las imagenes ya que venian de un URL
    fun bind(movie:Movie){
         val posterURL = "https://image.tmdb.org/t/p/w185"+movie.posterPath
         Glide.with(binding.imageView.context)

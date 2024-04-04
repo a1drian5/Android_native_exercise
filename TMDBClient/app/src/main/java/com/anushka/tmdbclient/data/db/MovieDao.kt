@@ -6,6 +6,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.anushka.tmdbclient.data.model.movie.Movie
 
+//Proporciona métodos para realizar consultas personalizadas
 @Dao
 interface MovieDao {
 

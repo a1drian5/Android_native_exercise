@@ -35,6 +35,7 @@ object RemoteDataModule {
         )
     }
 
+    // Por medio de sharePreference se guarda la preferencia del lenguaje al iniciar la app
     @Provides
     @Named("language")
     fun provideLanguage(@ApplicationContext context: Context): String {

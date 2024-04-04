@@ -5,6 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+// Modelo de la clase Movie
 @Entity(tableName = "popular_movies")
 data class Movie(
     @PrimaryKey

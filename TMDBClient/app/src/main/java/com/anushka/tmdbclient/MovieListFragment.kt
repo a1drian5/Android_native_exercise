@@ -7,19 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import android.widget.Toolbar
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.anushka.tmdbclient.databinding.ActivityMovieBinding
 import com.anushka.tmdbclient.databinding.FragmentMovieListBinding
 import com.anushka.tmdbclient.presentation.movie.MovieAdapter
 import com.anushka.tmdbclient.presentation.movie.MovieViewModel
 import com.anushka.tmdbclient.presentation.movie.MovieViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-
 
 @AndroidEntryPoint
 class MovieListFragment : Fragment() {
@@ -29,7 +26,6 @@ class MovieListFragment : Fragment() {
     private lateinit var movieViewModel: MovieViewModel
     private lateinit var binding: FragmentMovieListBinding
     private lateinit var adapter: MovieAdapter
-
 
     override fun onCreateView(
         inflater: LayoutInflater,

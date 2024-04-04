@@ -32,6 +32,7 @@ class MovieDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Obtiene los datos del anterior fragmento
         arguments?.let {
             movieId = it.getInt("movieId")
             movieOverview = it.getString("movieOverview")

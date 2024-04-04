@@ -6,8 +6,8 @@ import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
+// Se encarga de obtener el endpoint de la app
 interface TMDBService {
-
     @GET("movie/popular")
     suspend fun getPopularMovies(
         @Query("api_key") apiKey: String,
